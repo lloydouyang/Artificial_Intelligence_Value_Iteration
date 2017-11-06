@@ -5,7 +5,7 @@ MAX_ITERS = 10
 epsilon = 0.001
 dirs = ["N", "S", "E", "W", "NE", "NW", "SE", "SW", "STAY"]
 displacement=[[-1,0],[1,0],[0,1],[0,-1],[-1,1],[-1,-1],[1,1],[1,-1],[0,0]]
-windcase = 0
+windcase = 2
 def printmatrix(mm):
     print('\n'.join([''.join(['{:4}'.format(item) for item in row]) for row in mm]))
 
@@ -55,7 +55,7 @@ def val_iter():
                     if re_sum > rewards:
                         rewards = re_sum
                         pi[i][j][0] = k
-                        pi[i][j][1] = 0
+                        pi[i][j][1] = -1
                     else:
                         if re_sum == rewards:
                             pi[i][j][1] =k
