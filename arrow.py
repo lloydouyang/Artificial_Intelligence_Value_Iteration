@@ -19,18 +19,18 @@ def reward(direction):
 def wind(direction):
     if direction[1] >=3 and direction[1] <=5:
         direction = [direction[0]-windcase, direction[1]]
-    if direction[0] < 0:
-        direction = [0, direction[1]]
+    #if direction[0] < 0:
+    #    direction = [0, direction[1]]
     return direction
 
 def move(curloc,k):
+    curloc = wind(curloc)
     curloc[0]= curloc[0] + displacement[k][0]
     curloc[1]= curloc[1] + displacement[k][1]
     if curloc[0]<0: curloc[0]=0
     if curloc[1]<0: curloc[1]=0
     if curloc[0]>6: curloc[0]=6
     if curloc[1]>6: curloc[1]=6
-    curloc = wind(curloc)
     return curloc
 
 def val_iter():
